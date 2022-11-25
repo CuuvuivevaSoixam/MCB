@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<title> IOT-Platform PTIT </title>
+<head>
+	<meta charset="utf-8">
+    <link rel="stylesheet" href="./boot.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+</head>
+
+<body>
+
+	<div class="title"> IOT Platform in PTIT </div>
+	<div class="row">
+		<div class="col-lg-4" id="temp" >
+			<div class="icon"><img src="./temprature.png" alt=""></div><br>
+			
+			<p id="col1"></p>
+		</div>
+
+		<div class="col-lg-4" id="hum">
+			<div class="icon"><img src="./wet-ting-4-u.png" alt=""></div><br>
+			
+				<p id="col2"></p>
+		</div>
+
+		<div class="col-lg-4" id="light">
+			<div class="icon"><img src="./sunny.png" alt=""></div><br>	
+			<p id="col3"></p>
+		</div>
+		
+	</div>
+	<div class="row">
+	
+	<div id="chart" class="col-lg-8">
+		
+			<canvas id="myChart"></canvas>
+	</div>
+	<div class="col-lg-4">
+		<div class="btnn1" id="nutall" > Đèn WC <br>
+			<img id="anh1" src="light-off.png">
+			<div class="btn btn-primary" id="but1" >ON</div>
+			<div class="btn btn-primary" id="but2" >OFF</div>
+			
+		</div> <br>
+		<div class="btnn2">Đèn Ngủ <br>
+			<img id="anh2" src="light-off.png">
+			<label class="switch">
+				<input type="checkbox">
+				<span class="slider round"></span>
+			  </label>
+		</div>
+	</div>
+	</div>
+
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.3/socket.io.js"></script>
+	<script src="./client.js"></script>
+       
+		
+</body>
+<!-- <script src="/server.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.3/socket.io.js"></script> -->
+</html>
