@@ -1,13 +1,13 @@
-#include <ESP8266WiFi.h>
+#include <WiFi.h>
 #include <String.h>
 #include <PubSubClient.h>
-#include "DHT.h"
+#include <DHT.h>
 
-#define DHTPIN 4 
+#define DHTPIN D5
 #define DHTTYPE DHT11
-#define LDR 34
-#define pinOutLed1 18 // D1
-#define pinOutLed2 19 // D2
+#define LDR A0
+#define pinOutLed1 5 // D1
+#define pinOutLed2 4 // D2
 #define wifi_ssid "LAD"
 #define wifi_password "12345679"
 #define mqtt_server "broker.mqttdashboard.com"

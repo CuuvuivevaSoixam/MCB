@@ -78,8 +78,8 @@ const config = {
     },
 };
 
-function auto(x){
-    if(x>900){
+function auto(x,y){
+    if(x>29 && y>67){
     socket.emit('led1','on')
     document.querySelector('#anh1').src='light-on.png'
     }
@@ -107,7 +107,7 @@ const dataSS = arr.map(data => Number(data));
     changeColor1(dataSS[0])
     changeColor2(dataSS[1])
     changeColor3(dataSS[2])
-    auto(dataSS[2])
+    auto(dataSS[0],dataSS[1] )
 
 const day = new Date();
 let time = `${day.getHours()}:${day.getMinutes()}:${day.getSeconds()}`;
@@ -126,6 +126,7 @@ document.querySelector('#but1').addEventListener('click',()=> {
         document.getElementById("but1").style.background="blue"
         document.getElementById("but2").style.background="gray"
         document.querySelector('#anh1').src='light-on.png'
+        // document.getElementById('nutall').style.background= 'red'
     }
 })
 document.querySelector('#but2').addEventListener('click',()=> {
