@@ -1,19 +1,19 @@
-#include <WiFi.h>
+#include <ESP8266WiFi.h>
 #include <String.h>
 #include <PubSubClient.h>
-#include <DHT.h>
+#include "DHT.h"
 
-#define DHTPIN D5
+#define DHTPIN 14 
 #define DHTTYPE DHT11
 #define LDR A0
 #define pinOutLed1 5 // D1
 #define pinOutLed2 4 // D2
-#define wifi_ssid "LAD"
-#define wifi_password "12345679"
+#define wifi_ssid "PATE COT DEN"
+#define wifi_password "88888888"
 #define mqtt_server "broker.mqttdashboard.com"
-#define mqtt_user " lad"
+#define mqtt_user "thuy"
 #define mqtt_password "123456"
-#define topic "sensorlad"
+#define topic "sensorData"
 DHT dht(DHTPIN, DHTTYPE);
 
 WiFiClient espClient;
@@ -46,14 +46,14 @@ void setup_wifi() {
 void reconnect() {
   while (!client.connected()) {
     Serial.print("Attempting MQTT connection...");
-    String clientName = "clientId-gAe5UTm3Ou";
+    String clientName = "thuy";
     if (client.connect(clientName.c_str(), mqtt_user, mqtt_password)) {
       Serial.println("connected");
-      client.subscribe("LED11");
-      client.subscribe("LED21");
+      client.subscribe("Led1");
+      client.subscribe("Led2");
     } else {
       Serial.println("failed, try again in 5 seconds");
-      delay(5000);
+      delay(4000);
     }
   }
 }
@@ -68,7 +68,7 @@ void callback(String topic_sub, byte *payload, unsigned int length) {
     }
   Serial.print(message);
   Serial.println();
-  if(topic_sub == "LED11"){
+  if(topic_sub == "Led1"){
     if(message == "on"){
       digitalWrite(pinOutLed1, HIGH);
       Serial.print("on");
@@ -78,7 +78,7 @@ void callback(String topic_sub, byte *payload, unsigned int length) {
        Serial.print("Off");
     }
   }
-  if(topic_sub == "LED21"){
+  if(topic_sub == "Led2"){
     if(message == "on"){
       digitalWrite(pinOutLed2, HIGH);
       Serial.print("on");
@@ -96,7 +96,7 @@ void loop() {
     reconnect();
   }
   client.loop();
-  delay(2000);
+  delay(1000);
   float hum = dht.readHumidity();
   float temp = dht.readTemperature();    
   float lux = analogRead(LDR);    

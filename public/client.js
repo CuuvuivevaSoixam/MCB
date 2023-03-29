@@ -78,16 +78,16 @@ const config = {
     },
 };
 
-function auto(x,y){
-    if(x>29 && y>67){
-    socket.emit('led1','on')
-    document.querySelector('#anh1').src='light-on.png'
-    }
-    else{
-        socket.emit('led1','off')
-        document.querySelector('#anh1').src='light-off.png'
-    }
-}
+// function auto(x,y){
+//     if(x>29 && y>67){
+//     socket.emit('led1','on')
+//     document.querySelector('#anh1').src='light-on.png'
+//     }
+//     else{
+//         socket.emit('led1','off')
+//         document.querySelector('#anh1').src='light-off.png'
+//     }
+// }
 
 
 Chart.defaults.color = '#000';
@@ -107,7 +107,7 @@ const dataSS = arr.map(data => Number(data));
     changeColor1(dataSS[0])
     changeColor2(dataSS[1])
     changeColor3(dataSS[2])
-    auto(dataSS[0],dataSS[1] )
+    // auto(dataSS[0],dataSS[1] )
 
 const day = new Date();
 let time = `${day.getHours()}:${day.getMinutes()}:${day.getSeconds()}`;
